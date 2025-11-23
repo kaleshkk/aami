@@ -1,0 +1,42 @@
+# ---- General ----
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+.env
+.env.*
+
+# IDE / editor
+.vscode/
+.idea/
+*.iml
+
+# ---- Python / FastAPI backend ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# SQLite or local db files (if ever used)
+*.sqlite3
+*.db
+
+# ---- Node / React frontend ----
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+frontend/test-results/
+frontend/.eslintcache
+
+# ---- Docker / Compose artifacts ----
+*.pid
+
+

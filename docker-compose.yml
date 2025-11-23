@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: vault
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: vaultdb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - vaultnet
+
+  backend:
+    build: ./backend
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://vault:changeme@db:5432/vaultdb
+      SECRET_KEY: changeme_should_be_random
+    ports:
+      - "8000:8000"
+    networks:
+      - vaultnet
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+    networks:
+      - vaultnet
+
+volumes:
+  db-data:
+
+networks:
+  vaultnet:
+
+

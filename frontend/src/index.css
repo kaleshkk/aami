@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* Theming aligned with the Aami logo: teal → indigo glow on a dark base */
+  @apply bg-gradient-to-br from-cyan-950 via-slate-950 to-indigo-950 text-slate-50 antialiased;
+}
+
+
